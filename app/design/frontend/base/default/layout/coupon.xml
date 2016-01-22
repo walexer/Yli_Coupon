@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+
+	<customer_account>
+	    <reference name="customer_account_navigation">
+	        <action method="addLink" translate="label" module="coupon"><name>coupon</name><path>coupon/</path><label>My Coupon</label></action>
+	    </reference>
+	</customer_account>
+	
+	<coupon_index_index translate="label">
+        <label>Customer My Account My Coupon</label>
+        <update handle="customer_account" />
+        <reference name="my.account.wrapper">
+            <block type="coupon/customer_coupon" name="customer.coupon" template="coupon/view.phtml">
+            </block>
+        </reference>
+    </coupon_index_index>
+
+</layout>

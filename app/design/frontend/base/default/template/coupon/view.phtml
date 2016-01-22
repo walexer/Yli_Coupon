@@ -1,0 +1,62 @@
+<?php 
+    $coupons = $this->getCoupons();  
+?>
+<div class="box-title">            <h2><?php echo $this->__('My Coupon');?></h2>                    
+</div>
+<div class="box-content">
+  <div class="table-wrap">             
+    <table class="data-table" id="my-coupons-table">            
+      <colgroup>           
+      <col width="1">            
+      <col width="1">            
+      <col width="1">            
+      <col width="1">            
+      </colgroup>
+      <thead>                
+        <tr>                    
+          <th><?php echo $this->__('Coupon Code');?>
+          </th>                    
+          <th><?php echo $this->__('Expiration Date');?>
+          </th>                                      
+          <th>
+            <span class="nobr"><?php echo $this->__('Rule Name');?>
+            </span>
+          </th>                    
+          <th>
+            <span class="nobr"><?php echo $this->__('Used');?>
+            </span>
+          </th>                    
+               
+        </tr>            
+      </thead>            
+      <tbody>  
+        <?php foreach ($coupons as $coupon):?>  
+        <tr>                    
+            <td>
+                <span class="nobr"><?php echo $coupon->getCode();?></span>
+            </td>                    
+            <td>
+            <span class="nobr"><?php echo $coupon->getExpirationDate()?$this->formatDate($coupon->getExpirationDate()):'NULL';?></span>
+            </td>                                        
+            <td>
+            <span class="price"><?php echo $coupon->getName();?></span>
+            </td>                    
+            <td>
+                <em><?php echo $coupon->getTimesUsed()?'Yes':'No';?></em>
+            </td>                                   
+        </tr>  
+        <?php endforeach;?>
+      </tbody>        
+    </table>     
+<script type="text/javascript">decorateTable('my-coupons-table');</script>      
+    <div class="wrapper">    
+      <div class="loading" style="position: fixed;top: 50%;left: 50%;margin-top: -50px;">
+      </div>
+    </div> 
+  </div>	
+  <div class="fieldset">		
+    <div class="buttons-set">		    
+      <p class="back-link"><a href="<?php echo $this->getUrl('customer/account') ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a></p>		
+    </div>	
+  </div>
+</div>
